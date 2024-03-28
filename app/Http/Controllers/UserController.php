@@ -58,8 +58,7 @@ class UserController extends Controller
     {
 
         return view('users.create', [
-            'roles' => Role::all(),
-            'units' => Units::all()
+            'roles' => Role::all()
         ]);
     }
 
@@ -76,7 +75,6 @@ class UserController extends Controller
             'image' => 'image|file|max:1024',
             'password' => 'required|min:5|max:255',
             'role_id' => 'required',
-            'unit_id' => 'required',
             'remember_token'  => 'required'
         ]);
 
@@ -103,8 +101,7 @@ class UserController extends Controller
 
         return view('users.edit', [
             'user' => $user,
-            'roles' => Role::all(),
-            'units' => Units::all()
+            'roles' => Role::all()
         ]);
     }
 
@@ -121,8 +118,7 @@ class UserController extends Controller
             'image' => 'image|file|max:1024',
             'email' => 'email',
             'password' => 'min:5|max:255',
-            'role_id' => 'max:255',
-            'unit_id' => 'max:255'
+            'role_id' => 'max:255'
         ];
 
         if ($request->username != $user->username) {

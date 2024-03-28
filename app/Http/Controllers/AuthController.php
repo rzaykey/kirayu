@@ -13,6 +13,10 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
+    public function guest()
+    {
+        return view('landing.index');
+    }
 
     public function dologin(Request $request)
     {

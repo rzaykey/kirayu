@@ -86,19 +86,6 @@
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <div class="col-auto">
-                                            <label for="unit" class="form-label">Unit</label>
-                                            <select class="form-select @error('unit_id') is-invalid @enderror"
-                                                name="unit_id" required value="{{ old('unit_id') }}">
-                                                @foreach ($units as $unit)
-                                                    <option value="{{ $unit->id }}">{{ $unit->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                            @error('unit_id')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
                                         <div class="col">
                                             <label for="image" class="form-label">Photo</label>
                                             <input class="mb-3 form-control @error('image') is-invalid @enderror"

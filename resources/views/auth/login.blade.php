@@ -15,7 +15,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-                    <form method="post" action="/">
+                    <form method="post" action="/login">
                         @csrf
                         <div class="form-outline mb-4">
                             <label for="email" class="form-label">Email</label>

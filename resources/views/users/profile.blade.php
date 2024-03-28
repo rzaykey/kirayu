@@ -23,7 +23,7 @@
                                 @endif
                                 <h5 class="my-3">{{ $user[0]->name }}</h5>
                                 <p class="text-muted mb-3">{{ $user[0]->username }}</p>
-                                <p class="text-muted mb-3">{{ $user[0]->role->role_name }} | {{ $user[0]->unit->name }}</p>
+                                <p class="text-muted mb-3">{{ $user[0]->role->role_name }}</p>
                                 <div class="d-flex justify-content-center mb-2">
                                     <a href="/profile/{{ $user[0]->id }}/edit/" type="button" class="btn btn-warning">
                                         <span data-feather="edit"></span> Edit</a>

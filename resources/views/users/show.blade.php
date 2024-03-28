@@ -16,7 +16,7 @@
                                         alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                                 @endif
                                 <h5 class="my-3">{{ $user->name }}</h5>
-                                <p class="text-muted mb-3">{{ $user->role->role_name }} | {{ $user->unit->name }}</p>
+                                <p class="text-muted mb-3">{{ $user->role->role_name }}</p>
                                 <div class="d-flex justify-content-center mb-2">
                                     <a href="/users/{{ $user->id }}/edit/" type="button" class="btn btn-warning ms-1">
                                         <span data-feather="edit"></span> Edit</a>

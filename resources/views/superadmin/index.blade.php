@@ -14,25 +14,31 @@
         <div class="card-body">
             <div class="chart-area">
                 <div class="row">
-                    <div class="col-xl-8 col-lg-7">
-                        <div class="card shadow mb-4">
-                            <div class="card-body">
-                                <div class="chart-area pt-4">
-                                    <div id="line_chart"></div>
-                                </div>
-                                <hr>
-                                Total File dalam bulan
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-5">
+                    <div class="col-xl-6 col-lg-5">
                         <div class="card shadow mb-4">
                             <div class="card-body">
                                 <div class="chart-pie pt-4">
                                     <div id="pie_chart"></div>
                                 </div>
                                 <hr>
-                                Total File
+                                Total Barang
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ccol-xl-4 col-lg-5">
+                        <div class="card shadow mb-4">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Semua Barang </div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $myfile }}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i data-feather="hard-drive"
+                                            style="width:48px;height:48px;color:rgba(22, 89, 233, 0.979)"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -43,74 +49,6 @@
     <div class="card">
         <div class="card-body">
             <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Semua File Saya</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $myfile }}</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i data-feather="hard-drive"
-                                        style="width:48px;height:48px;color:rgba(22, 89, 233, 0.979)"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        File PDF</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $mypdf }}</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i data-feather="file"
-                                        style="width:48px;height:48px;color:rgba(22, 89, 233, 0.979)"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        File Document</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $mydoc }}</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i data-feather="file-text"
-                                        style="width:48px;height:48px;color:rgba(22, 89, 233, 0.979)"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        File Gambar</div>
-                                    {{-- <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $data }}</div> --}}
-                                </div>
-                                <div class="col-auto">
-                                    <i data-feather="image"
-                                        style="width:48px;height:48px;color:rgba(22, 89, 233, 0.979)"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -127,71 +65,13 @@
 
         }
     </script>
-    {{-- <script>
-        Highcharts.chart('line_chart', {
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'Arsip Perpustakaan by Years',
-            },
-            yAxis: {
-                title: {
-                    text: ''
-                },
-                labels: {
-                    overflow: 'justify'
-                },
-                gridLineWidth: 0
-            },
-
-            xAxis: {
-                categories: <?= json_encode([2023, 2024]) ?>
-            },
-
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle'
-            },
-
-            plotOptions: {
-                series: {
-                    label: {
-                        connectorAllowed: false
-                    },
-                }
-            },
-
-            series: [{
-                name: 'Arsip',
-                data: <?= json_encode($line['data']) ?>
-            }],
-
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 500
-                    },
-                    chartOptions: {
-                        legend: {
-                            layout: 'horizontal',
-                            align: 'center',
-                            verticalAlign: 'bottom'
-                        }
-                    }
-                }]
-            }
-
-        });
-    </script> --}}
     <script>
         Highcharts.chart('pie_chart', {
             chart: {
                 type: 'pie'
             },
             title: {
-                text: 'My File by Category'
+                text: 'Product by Category'
             },
             plotOptions: {
                 series: {

@@ -18,7 +18,6 @@ class User extends Authenticatable
         'email',
         'password',
         'role_id',
-        'unit_id',
         'image',
         'remember_token',
         'last_login_at',

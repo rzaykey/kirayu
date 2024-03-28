@@ -124,28 +124,6 @@
                                             </div>
                                             <hr>
                                         @endif
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <p class="mb-0">Unit</p>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <select class="form-select" name="unit_id">
-                                                    @foreach ($units as $unit)
-                                                        @if (old('unit_id', $user->unit_id) == $unit->id)
-                                                            <option value="{{ $unit->id }}" selected>
-                                                                {{ $unit->name }}
-                                                            </option>
-                                                        @else
-                                                            <option value="{{ $unit->id }}">{{ $unit->name }}
-                                                            </option>
-                                                        @endif
-                                                    @endforeach
-                                                </select>
-                                                @error('unit_id')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">

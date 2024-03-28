@@ -10,7 +10,6 @@ use Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UpdateProfileRequest;
-use App\Models\Units;
 
 class ProfileController extends Controller
 {
@@ -33,8 +32,7 @@ class ProfileController extends Controller
     {
         return view('users.edit-profile  ', [
             'user' => User::where('id', auth()->user()->id)->get(),
-            'roles' => Role::all(),
-            'units' => Units::all()
+            'roles' => Role::all()
         ]);
     }
 
@@ -48,8 +46,7 @@ class ProfileController extends Controller
         $rules = [
             'name' => 'max:255',
             'image' => 'image|file|max:1024',
-            'email' => 'email',
-            'unit_id' => 'max:255',
+            'email' => 'email'
         ];
 
         $validatedData['updated_at'] = $updated_at;

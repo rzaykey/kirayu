@@ -105,29 +105,6 @@
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <p class="mb-0">Unit</p>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <select class="form-select" name="unit_id">
-                                                    @foreach ($units as $unit)
-                                                        @if (old('unit_id', $user[0]->unit_id) == $unit->id)
-                                                            <option value="{{ $unit->id }}" selected>
-                                                                {{ $unit->name }}
-                                                            </option>
-                                                        @else
-                                                            <option value="{{ $unit->id }}">{{ $unit->name }}
-                                                            </option>
-                                                        @endif
-                                                    @endforeach
-                                                </select>
-                                                @error('unit_id')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-4">
                                                 <input type="hidden" name="oldImage" value="{{ $user[0]->image }}">
                                                 <label for="image" class="form-label col-sm-3">Photo</label>
                                             </div>

@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Documents;
+use App\Models\Products;
 
 class SuperadminController extends Controller
 {
     public function index()
     {
-        $rows = Documents::selectRaw('categories.name, COUNT(*) AS total')
+        $rows = Products::selectRaw('categories.name, COUNT(*) AS total')
             ->where('created_by', auth()->user()->name)
-            ->join('categories', 'categories.id', 'documents.categories_id')
+            ->join('categories', 'categories.id', 'products.categories_id')
             ->groupBy('name')->get();
         $pie = [];
         foreach ($rows as $row) {
@@ -20,7 +20,7 @@ class SuperadminController extends Controller
             ];
         }
 
-        $rows = Documents::selectRaw('COUNT(*) AS total')
+        $rows = Products::selectRaw('COUNT(*) AS total')
             ->where('created_by', 'Perpustakaan')
             ->groupBy(['Y'])
             ->selectRaw('YEAR(created_at) as Y')->get();
@@ -30,9 +30,9 @@ class SuperadminController extends Controller
             $line['data'][] = $row->total * 1;
         }
 
-        $myfile = Documents::where('created_by', auth()->user()->name)->count();
-        $mypdf = Documents::join('categories', 'categories.id', '=', 'documents.categories_id')->where('created_by', auth()->user()->name)->where('categories.id', '=', '1')->count();
-        $mydoc = Documents::join('categories', 'categories.id', '=', 'documents.categories_id')->where('created_by', auth()->user()->name)->where('categories.id', '=', '2')->count();
+        $myfile = Products::where('created_by', auth()->user()->name)->count();
+        $mypdf = Products::join('categories', 'categories.id', '=', 'products.categories_id')->where('created_by', auth()->user()->name)->where('categories.id', '=', '1')->count();
+        $mydoc = Products::join('categories', 'categories.id', '=', 'products.categories_id')->where('created_by', auth()->user()->name)->where('categories.id', '=', '2')->count();
         return view('superadmin.index', compact('myfile', 'mypdf', 'mydoc', 'line', 'pie'));
     }
 }

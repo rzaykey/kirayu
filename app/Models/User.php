@@ -34,12 +34,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class, 'role_id', 'id');
     }
-    public function unit()
+    public function products()
     {
-        return $this->belongsTo(Units::class, 'unit_id');
-    }
-    public function file()
-    {
-        return $this->hasMany(Documents::class);
+        return $this->hasMany(Products::class);
     }
 }

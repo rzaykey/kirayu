@@ -18,79 +18,38 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Role::create([
+            'role_name' => 'Owner',
+        ]);
+
+        Role::create([
             'role_name' => 'Administrator',
         ]);
 
-        Role::create([
-            'role_name' => 'Direktur',
-        ]);
-
-        Role::create([
-            'role_name' => 'Manager',
-        ]);
-        Role::create([
-            'role_name' => 'Supervisor',
-        ]);
-        Role::create([
-            'role_name' => 'Staff & Guru',
-        ]);
-        Role::create([
-            'role_name' => 'Perpustakaan',
-        ]);
-
-        Units::create([
-            'name' => 'UKA',
-        ]);
-
-        Units::create([
-            'name' => 'SD1',
-        ]);
-
-        Units::create([
-            'name' => 'SD2',
-        ]);
-
-        Units::create([
-            'name' => 'SD3',
-        ]);
-
-        Units::create([
-            'name' => 'SMP',
-        ]);
-
-        Units::create([
-            'name' => 'SMA',
+        Category::create([
+            'name' => 'CCTV',
         ]);
 
         Category::create([
-            'name' => 'PDF',
+            'name' => 'Router',
         ]);
 
         Category::create([
-            'name' => 'Document',
-        ]);
-
-        Category::create([
-            'name' => 'Foto & Video',
+            'name' => 'Cable',
         ]);
 
         User::create([
-            'name' => 'IT YPPSB',
-            'username' => 'IT',
-            'email' => 'ityppsb@gmail.com',
+            'name' => 'Kirayu',
+            'username' => 'owner',
+            'email' => 'kirayu@gmail.com',
             'password' => bcrypt('password'),
             'role_id' => '1',
-            'unit_id' => '1',
         ]);
         User::create([
-            'name' => 'Perpustakaan',
-            'username' => 'perpus',
-            'email' => 'perpus@gmail.com',
+            'name' => 'Admin',
+            'username' => 'admin',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
-            'role_id' => '6',
-            'unit_id' => '1',
+            'role_id' => '2',
         ]);
-
-        User::factory(5)->create();
     }
 }
